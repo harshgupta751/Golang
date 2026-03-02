@@ -13,7 +13,7 @@ func main() {
 
 	// fruitList= append(fruitList[1:])
 	fruitList= append(fruitList[0:3])
-	
+
 	fmt.Println(fruitList)
 
 	var myList []string
@@ -31,6 +31,15 @@ func main() {
 
 	highScores = append(highScores, 1, 100)
 	fmt.Println(highScores)
+
+ languages:= []string{"JavaScript", "Golang", "Rust", "Python", "C++", "Java"}
+
+ fmt.Println(languages)
+ var index = 2
+ languages= append(languages[:index], languages[index+1:]...)
+
+ fmt.Println(languages)
+
 
 
 }
