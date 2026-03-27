@@ -6,6 +6,7 @@ const app = express()
 app.use(cors())
 
 app.use(express.json())
+app.use(express.urlencoded({extended : false}))
 
 app.get('/get', (req, res)=>{
 
@@ -18,6 +19,15 @@ message: "Get request successfully executed."
 app.post('/post', (req, res)=>{
 
 res.json(req.body);
+
+})
+
+
+app.post('/postform', (req, res)=>{
+
+
+res.json(req.body)
+
 
 })
 

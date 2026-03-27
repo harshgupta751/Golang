@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
@@ -13,7 +14,7 @@ func main() {
 
 // PerformGetRequest()
 
-PerformPostRequest()
+PerformPostRequestWithRawQuery()
 }
 
 func PerformGetRequest() {
@@ -68,5 +69,26 @@ defer res.Body.Close()
 
 fmt.Println(string(dataBytes))
 
+
+}
+
+func PerformPostRequestWithRawQuery(){
+
+rawQuery := url.Values{}
+rawQuery.Add("firstName", "Harsh")
+rawQuery.Add("lastName", "Gupta")
+rawQuery.Add("year", "2")
+
+res, err := http.PostForm("http://localhost:5000/postform", rawQuery)
+
+if err!=nil {
+	panic(err)
+}
+
+dataBytes, _ := ioutil.ReadAll(res.Body)
+defer res.Body.Close()
+
+
+fmt.Println(string(dataBytes))
 
 }
