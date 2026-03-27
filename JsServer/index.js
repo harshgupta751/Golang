@@ -25,9 +25,7 @@ res.json(req.body);
 
 app.post('/postform', (req, res)=>{
 
-
 res.json(req.body)
-
 
 })
 
