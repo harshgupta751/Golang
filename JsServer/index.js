@@ -26,7 +26,7 @@ res.json(req.body);
 app.post('/postform', (req, res)=>{
 
 
-res.json(req.body)
+res.send(JSON.stringify(req.body))
 
 
 })
