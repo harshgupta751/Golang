@@ -7,21 +7,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main() {
-
-	r := mux.NewRouter()
-
-	r.HandleFunc("/courses", getAllCourses).Methods("GET")
-	r.HandleFunc("/course/{id}", getCourseByID).Methods("GET")
-	r.HandleFunc("/createCourse", createCourse).Methods("POST")
-	r.HandleFunc("/updateCourse/{id}", updateCourse).Methods("PUT")
-	r.HandleFunc("/deleteCourse/{id}", deleteCourse).Methods("DELETE")
-
-	log.Fatal(http.ListenAndServe(":8020", r))
-
-}
-
-
 type Course struct {
 	CourseId 		string   `json:"courseId"`
 	CourseName 		string	 `json:"courseName"`
@@ -141,7 +126,19 @@ for index, course := range courses {
 }
 
 
+func main() {
 
+	r := mux.NewRouter()
+
+	r.HandleFunc("/courses", getAllCourses).Methods("GET")
+	r.HandleFunc("/course/{id}", getCourseByID).Methods("GET")
+	r.HandleFunc("/createCourse", createCourse).Methods("POST")
+	r.HandleFunc("/updateCourse/{id}", updateCourse).Methods("PUT")
+	r.HandleFunc("/deleteCourse/{id}", deleteCourse).Methods("DELETE")
+
+	log.Fatal(http.ListenAndServe(":8020", r))
+
+}
 
 
 
