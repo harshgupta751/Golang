@@ -81,6 +81,7 @@ for _, course := range courses {
 
 
 }
+
 func createCourse(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "application/json")
 
@@ -120,6 +121,7 @@ courses = append(courses, updatedCourse)
 json.NewEncoder(w).Encode(courses)
 
 }
+
 func deleteCourse(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "application/json")
 
