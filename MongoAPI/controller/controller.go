@@ -135,8 +135,8 @@ fmt.Println("Deleted Count is :", result.DeletedCount)
 
 
 func InsertOneMovie(w http.ResponseWriter, r *http.Request){
-w.Header().Set("Content-Type", "application/x-www-form-urlencode")
-w.Header().Set("Allow-Control-Allow-Methods", "POST")
+w.Header().Set("Content-Type", "application/json")
+w.Header().Set("Access-Control-Allow-Methods", "POST")
 
 var movie models.NetFlix
 json.NewDecoder(r.Body).Decode(&movie)
@@ -148,8 +148,7 @@ json.NewEncoder(w).Encode("Movie inserted successfully")
 }
 
 func GetAllMovies(w http.ResponseWriter, r *http.Request){
-w.Header().Set("Content-Type", "application/x-www-form-urlencode")
-w.Header().Set("Allow-Control-Allow-Methods", "GET")
+w.Header().Set("Access-Control-Allow-Methods", "GET")
 
 movies := getAllMovies()
 
@@ -160,7 +159,7 @@ json.NewEncoder(w).Encode(movies)
 
 func UpdateOneMovie(w http.ResponseWriter, r *http.Request){
 w.Header().Set("Content-Type", "application/x-www-form-urlencode")
-w.Header().Set("Allow-Control-Allow-Methods", "PUT")
+w.Header().Set("Access-Control-Allow-Methods", "PUT")
 
 params:= mux.Vars(r)
 
@@ -174,7 +173,7 @@ json.NewEncoder(w).Encode("Movie watch status updated successfully")
 
 func DeleteOneMovie(w http.ResponseWriter, r *http.Request){
 w.Header().Set("Content-Type", "application/x-www-form-urlencode")
-w.Header().Set("Allow-Control-Allow-Methods", "DELETE")
+w.Header().Set("Access-Control-Allow-Methods", "DELETE")
 
 params:= mux.Vars(r)
 
@@ -188,8 +187,7 @@ json.NewEncoder(w).Encode("Movie deleted successfully")
 }
 
 func DeleteAllMovies(w http.ResponseWriter, r *http.Request){
-w.Header().Set("Content-Type", "application/x-www-form-urlencode")
-w.Header().Set("Allow-Control-Allow-Methods", "DELETE")
+w.Header().Set("Access-Control-Allow-Methods", "DELETE")
 
 deleteAllMovies()
 
