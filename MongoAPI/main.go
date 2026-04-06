@@ -2,12 +2,13 @@ package main
 
 import (
 	"MongoAPI/router"
-	"net/http"
 	"fmt"
+	"log"
+	"net/http"
 )
 
 func main() {
 	fmt.Println("Server is running on Port 8020")
-	http.ListenAndServe(":8020", router.Router())
+	log.Fatal(http.ListenAndServe(":8020", router.Router()))
 
 }

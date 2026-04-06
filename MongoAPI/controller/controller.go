@@ -79,7 +79,7 @@ func getAllMovies() []models.NetFlix {
 }
 
 
-func updateOneMovie(movieID string){
+func markWatched(movieID string){
 id, _:= bson.ObjectIDFromHex(movieID)
 
 filter := bson.M{"_id": id}
@@ -157,7 +157,7 @@ json.NewEncoder(w).Encode(movies)
 }
 
 
-func UpdateOneMovie(w http.ResponseWriter, r *http.Request){
+func MarkWatched(w http.ResponseWriter, r *http.Request){
 w.Header().Set("Content-Type", "application/x-www-form-urlencode")
 w.Header().Set("Access-Control-Allow-Methods", "PUT")
 
@@ -165,7 +165,7 @@ params:= mux.Vars(r)
 
 id:= params["id"]
 
-updateOneMovie(id)
+markWatched(id)
 
 json.NewEncoder(w).Encode("Movie watch status updated successfully")
 
